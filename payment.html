@@ -16,35 +16,36 @@
             font-family: Arial, sans-serif;
             background: #f4f7fb;
             color: #222;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .container {
             width: 90%;
             max-width: 550px;
-            margin: 60px auto;
         }
 
         .box {
             background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
         }
 
         h1 {
-            text-align: center;
             margin-bottom: 10px;
         }
 
         .welcome {
-            text-align: center;
             color: #666;
             margin-bottom: 30px;
         }
 
         .price {
-            text-align: center;
-            font-size: 32px;
+            font-size: 36px;
             font-weight: bold;
             margin: 25px 0;
         }
@@ -52,7 +53,8 @@
         .payment-info {
             background: #f4f7fb;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
+            text-align: left;
             margin-bottom: 25px;
         }
 
@@ -65,17 +67,15 @@
         }
 
         .pay-button {
-            display: block;
             width: 100%;
-            padding: 14px;
+            padding: 15px;
             border: none;
-            border-radius: 7px;
+            border-radius: 8px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             background: #222;
             color: white;
-            text-align: center;
         }
 
         .pay-button:hover {
@@ -83,11 +83,98 @@
         }
 
         .note {
-            text-align: center;
             color: #666;
             font-size: 13px;
             margin-top: 20px;
         }
+
+
+        /* COUNTDOWN */
+
+        #countdownScreen {
+            display: none;
+        }
+
+        #countdownNumber {
+            font-size: 90px;
+            font-weight: bold;
+            margin: 30px 0;
+            animation: countdownAnimation 1s ease;
+        }
+
+        .countdown-text {
+            color: #666;
+            font-size: 16px;
+        }
+
+
+        /* ACCOUNT SCREEN */
+
+        #accountScreen {
+            display: none;
+            opacity: 0;
+        }
+
+        .account-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .account-number {
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin: 15px 0;
+            word-break: break-word;
+        }
+
+        .copy-button {
+            margin-top: 15px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 7px;
+            background: #222;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .copy-button:hover {
+            opacity: 0.85;
+        }
+
+
+        /* FADE ANIMATION */
+
+        .fade-in {
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes countdownAnimation {
+            from {
+                opacity: 0;
+                transform: scale(1.3);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
     </style>
 </head>
 
@@ -97,52 +184,96 @@
 
         <div class="box">
 
-            <h1>💳 Payment</h1>
+            <!-- NORMAL PAYMENT SCREEN -->
 
-            <p class="welcome">
-                Hello, <strong id="studentName"></strong>!
-            </p>
+            <div id="paymentScreen">
 
-            <p>
-                Your registration is almost complete.
-                Please complete your payment to continue.
-            </p>
+                <h1>💳 Payment</h1>
 
-
-            <div class="price">
-                ₦10,000
-            </div>
-
-
-            <div class="payment-info">
-
-                <p>
-                    <span class="label">Program:</span>
-                    Programming Lessons
+                <p class="welcome">
+                    Hello, <strong id="studentName"></strong>!
                 </p>
 
                 <p>
-                    <span class="label">Amount:</span>
+                    Your registration is almost complete.
+                    Please continue to payment.
+                </p>
+
+                <div class="price">
                     ₦10,000
-                </p>
+                </div>
 
-                <p>
-                    <span class="label">Status:</span>
-                    Payment required
+                <div class="payment-info">
+
+                    <p>
+                        <span class="label">Program:</span>
+                        Programming Lessons
+                    </p>
+
+                    <p>
+                        <span class="label">Amount:</span>
+                        ₦10,000
+                    </p>
+
+                    <p>
+                        <span class="label">Status:</span>
+                        Payment required
+                    </p>
+
+                </div>
+
+                <button class="pay-button" id="payButton">
+                    Continue to Payment
+                </button>
+
+                <p class="note">
+                    Your account will be activated after your payment
+                    has been successfully verified.
                 </p>
 
             </div>
 
 
-            <button class="pay-button" id="payButton">
-                Continue to Payment
-            </button>
+            <!-- COUNTDOWN SCREEN -->
+
+            <div id="countdownScreen">
+
+                <h1>💳 Payment Details</h1>
+
+                <p class="countdown-text">
+                    Preparing your payment information...
+                </p>
+
+                <div id="countdownNumber">
+                    10
+                </div>
+
+            </div>
 
 
-            <p class="note">
-                Your account will be activated after your payment
-                has been successfully verified.
-            </p>
+            <!-- ACCOUNT NUMBER SCREEN -->
+
+            <div id="accountScreen">
+
+                <h1>💰 Payment Information</h1>
+
+                <p class="account-title">
+                    SOLY-MIHAR'S ACCOUNT NO.
+                </p>
+
+                <div class="account-number">
+                    0058978900
+                </div>
+
+                <button class="copy-button" id="copyButton">
+                    Copy Account Number
+                </button>
+
+                <p class="note">
+                    Please make your payment using the account number above.
+                </p>
+
+            </div>
 
         </div>
 
@@ -151,24 +282,96 @@
 
     <script>
 
-        // Get information from the URL
+        // Get the student's name from the URL
         const params = new URLSearchParams(window.location.search);
 
-        // Get the student's name
         const name = params.get("fullname");
 
-        // Display the student's name
         document.getElementById("studentName").textContent = name;
 
 
-        // Get the payment button
-        const payButton = document.getElementById("payButton");
+        // Get the different screens
+        const paymentScreen =
+            document.getElementById("paymentScreen");
+
+        const countdownScreen =
+            document.getElementById("countdownScreen");
+
+        const accountScreen =
+            document.getElementById("accountScreen");
 
 
-        // Listen for a click
+        // Get the buttons
+        const payButton =
+            document.getElementById("payButton");
+
+        const copyButton =
+            document.getElementById("copyButton");
+
+
+        // Get the countdown number
+        const countdownNumber =
+            document.getElementById("countdownNumber");
+
+
+        // When the payment button is clicked
         payButton.addEventListener("click", function() {
 
-            alert("Payment system will be connected here.");
+            // Hide the normal payment screen
+            paymentScreen.style.display = "none";
+
+            // Show the countdown screen
+            countdownScreen.style.display = "block";
+
+
+            // Start at 10
+            let number = 10;
+
+            countdownNumber.textContent = number;
+
+
+            // Run every one second
+            const countdown = setInterval(function() {
+
+                number--;
+
+                if (number > 0) {
+
+                    countdownNumber.textContent = number;
+
+                } else {
+
+                    // Stop the countdown
+                    clearInterval(countdown);
+
+                    // Hide countdown
+                    countdownScreen.style.display = "none";
+
+                    // Show account screen
+                    accountScreen.style.display = "block";
+
+                    // Start fade-in animation
+                    accountScreen.classList.add("fade-in");
+
+                }
+
+            }, 1000);
+
+        });
+
+
+        // Copy account number
+        copyButton.addEventListener("click", function() {
+
+            navigator.clipboard.writeText("0058978900");
+
+            copyButton.textContent = "Copied ✓";
+
+            setTimeout(function() {
+
+                copyButton.textContent = "Copy Account Number";
+
+            }, 2000);
 
         });
 
