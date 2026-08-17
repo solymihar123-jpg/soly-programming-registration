@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Soly Mihar | Programming Registration</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            margin: 50px auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+        }
+
+        .form-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .options label {
+            display: inline-block;
+            font-weight: normal;
+            margin-right: 15px;
+        }
+
+        .options input {
+            width: auto;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            background: #222;
+            color: white;
+        }
+
+        .submit-button:hover {
+            opacity: 0.85;
+        }
+
+        .note {
+            font-size: 13px;
+            color: #666;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>💻 Soly Mihar</h1>
+            <p>Programming Lesson Registration</p>
+        </div>
+
+        <div class="form-box">
+
+            <form action="register.html" method="get">
+
+                <h2 class="section-title">Personal Information</h2>
+
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input
+                        type="text"
+                        id="fullname"
+                        name="fullname"
+                        placeholder="Enter your full name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input
+                        type="number"
+                        id="age"
+                        name="age"
+                        placeholder="Enter your age"
+                        min="6"
+                        max="100"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="example@email.com"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="school">School</label>
+                    <input
+                        type="text"
+                        id="school"
+                        name="school"
+                        placeholder="Enter your school"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="class">Class / Grade</label>
+                    <input
+                        type="text"
+                        id="class"
+                        name="class"
+                        placeholder="e.g. JSS2, SSS1, Grade 8"
+                    >
+                </div>
+
+
+                <h2 class="section-title">Programming</h2>
+
+                <div class="form-group">
+                    <label for="experience">
+                        How much programming experience do you have?
+                    </label>
+
+                    <select id="experience" name="experience">
+                        <option value="">Choose one</option>
+                        <option value="beginner">I'm completely new</option>
+                        <option value="little">I've tried a little</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label>What would you like to learn?</label>
+
+                    <div class="options">
+                        <label>
+                            <input type="checkbox" name="interest" value="html-css">
+                            HTML & CSS
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="interest" value="javascript">
+                            JavaScript
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="interest" value="python">
+                            Python
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="interest" value="ai">
+                            AI
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="interest" value="games">
+                            Game Development
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="idea">
+                        What would you love to build?
+                    </label>
+
+                    <textarea
+                        id="idea"
+                        name="idea"
+                        placeholder="Tell me about something you would like to create..."
+                    ></textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="why">
+                        Why do you want to learn programming?
+                    </label>
+
+                    <textarea
+                        id="why"
+                        name="why"
+                        placeholder="Tell us why you are interested in programming..."
+                    ></textarea>
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        How did you hear about the lessons?
+                    </label>
+
+                    <div class="options">
+
+                        <label>
+                            <input type="radio" name="source" value="friend">
+                            Friend
+                        </label>
+
+                        <label>
+                            <input type="radio" name="source" value="school">
+                            School
+                        </label>
+
+                        <label>
+                            <input type="radio" name="source" value="social-media">
+                            Social Media
+                        </label>
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="agreement"
+                            required
+                        >
+                        I confirm that the information I provided is correct.
+                    </label>
+                </div>
+
+
+                <button type="submit" class="submit-button">
+                    Register for Programming Lessons 🚀
+                </button>
+
+                <p class="note">
+                    Your information should only be collected and used for the
+                    programming lesson registration.
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment | Soly Mihar Programming</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 550px;
+            margin: 60px auto;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .welcome {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .price {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 25px 0;
+        }
+
+        .payment-info {
+            background: #f4f7fb;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .payment-info p {
+            margin: 10px 0;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        .pay-button {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            background: #222;
+            color: white;
+            text-align: center;
+        }
+
+        .pay-button:hover {
+            opacity: 0.85;
+        }
+
+        .note {
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="box">
+
+            <h1>💳 Payment</h1>
+
+            <p class="welcome">
+                Hello, <strong id="studentName"></strong>!
+            </p>
+
+            <p>
+                Your registration is almost complete.
+                Please complete your payment to continue.
+            </p>
+
+
+            <div class="price">
+                ₦10,000
+            </div>
+
+
+            <div class="payment-info">
+
+                <p>
+                    <span class="label">Program:</span>
+                    Programming Lessons
+                </p>
+
+                <p>
+                    <span class="label">Amount:</span>
+                    ₦10,000
+                </p>
+
+                <p>
+                    <span class="label">Status:</span>
+                    Payment required
+                </p>
+
+            </div>
+
+
+            <button class="pay-button" id="payButton">
+                Continue to Payment
+            </button>
+
+
+            <p class="note">
+                Your account will be activated after your payment
+                has been successfully verified.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // Get information from the URL
+        const params = new URLSearchParams(window.location.search);
+
+        // Get the student's name
+        const name = params.get("fullname");
+
+        // Display the student's name
+        document.getElementById("studentName").textContent = name;
+
+
+        // Get the payment button
+        const payButton = document.getElementById("payButton");
+
+
+        // Listen for a click
+        payButton.addEventListener("click", function() {
+
+            alert("Payment system will be connected here.");
+
+        });
+
+    </script>
+
+</body>
+</html>

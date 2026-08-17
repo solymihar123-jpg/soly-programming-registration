@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Student Account</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            margin: 60px auto;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .welcome {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 15px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            background: #222;
+            color: white;
+        }
+
+        .submit-button:hover {
+            opacity: 0.85;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-bottom: 15px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="box">
+
+            <h1>👤 Create Your Account</h1>
+
+            <p class="welcome">
+                Welcome, <strong id="studentName"></strong>!
+            </p>
+
+            <p>
+                Create a username and password for your student account.
+            </p>
+
+            <form id="accountForm">
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Choose a username"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Enter your password again"
+                        required
+                    >
+                </div>
+
+                <p id="errorMessage" class="error">
+                    Passwords do not match.
+                </p>
+
+                <button type="submit" class="submit-button">
+                    Create Student Account 🚀
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // Get information from the registration page
+        const params = new URLSearchParams(window.location.search);
+
+        // Get the student's name
+        const name = params.get("fullname");
+
+        // Display the student's name
+        document.getElementById("studentName").textContent = name;
+
+
+        // Get the account creation form
+        const accountForm = document.getElementById("accountForm");
+
+        // Listen for form submission
+        accountForm.addEventListener("submit", function(event) {
+
+            // Stop the page from refreshing
+            event.preventDefault();
+
+            // Get the passwords
+            const password =
+                document.getElementById("password").value;
+
+            const confirmPassword =
+                document.getElementById("confirmPassword").value;
+
+            // Get the error message
+            const errorMessage =
+                document.getElementById("errorMessage");
+
+
+            // Check whether the passwords match
+            if (password !== confirmPassword) {
+
+                errorMessage.style.display = "block";
+
+                return;
+            }
+
+
+            // Hide the error message
+            errorMessage.style.display = "none";
+
+
+            // Move to the payment page
+            window.location.href =
+                "payment.html?fullname=" +
+                encodeURIComponent(name);
+
+        });
+
+    </script>
+
+</body>
+</html>
